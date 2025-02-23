@@ -22,7 +22,7 @@ def gradient_descent(X, y, weights, learning_rate, iterations):
     
     return weights
 
-def train_logistic_regression(X, y, learning_rate=0.02, iterations=1000):
+def train_logistic_regression(X, y, learning_rate=0.01, iterations=1000):
     X = np.insert(X, 0, 1, axis=1)  # Adiciona a coluna de bias
     weights = np.zeros(X.shape[1])  # Inicializa os pesos com zero
     weights = gradient_descent(X, y, weights, learning_rate, iterations)
@@ -48,7 +48,7 @@ def compute_confusion_matrix(y_true, y_pred):
     plt.xlabel("Previsto")
     plt.ylabel("Real")
     plt.title("Matriz de Confusão")
-    plt.savefig("Matriz de confusao0.01.png")
+    plt.savefig("matriz_confusao_imagens/Matriz de confusao;learnig_rate: 0.01; iterations: 4000; threshold:0.5.png")
     plt.close()
 
     # Cálculo das métricas
@@ -67,13 +67,10 @@ def compute_confusion_matrix(y_true, y_pred):
     return confusion_mat, metrics
 
 def classificacao_logistica(X_train, y_train, X_test, y_test):
-    weights = train_logistic_regression(X_train, y_train, learning_rate=0.01, iterations=5000)
+    weights = train_logistic_regression(X_train, y_train, learning_rate=0.01, iterations=4000)
     predictions = predict(X_test, weights)
 
     predictions = np.array(predictions)
-
-    #display(predictions[:5])
-    #display(y_test[:5])
 
     confusion_mat, metrics = compute_confusion_matrix(y_test, predictions)
     

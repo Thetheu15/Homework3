@@ -30,17 +30,4 @@ def tratamento_dados():
         X_train, y_train, test_size=0.2, random_state=42, stratify=y_train
     )
 
-    """
-    print("X_train:\n")
-    display(X_train)
-    print("y_train:\n")
-    display(y_train)
-    print("X_test:\n")
-    display(X_test)
-    print("y_test:\n")
-    display(y_test)
-    print(np.unique(y_train, return_counts=True))
-    print(np.unique(y_test, return_counts=True))
-    """
-
     return X_train, y_train, X_val, y_val, X_test, y_test
